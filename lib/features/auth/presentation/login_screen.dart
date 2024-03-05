@@ -189,6 +189,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   MainButton(
                     text: StringManager.login.tr(),
                     onTap: () {
+                      Navigator.pushNamedAndRemoveUntil(
+                          context, Routes.main, (route) => false);
                       // if (validation()) {
                       //   BlocProvider.of<LoginWithEmailAndPasswordBloc>(context)
                       //       .add(LoginWithEmailAndPasswordEvent(

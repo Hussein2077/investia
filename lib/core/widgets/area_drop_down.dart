@@ -33,7 +33,7 @@ class _CitiesDropDownState extends State<CitiesDropDown> {
             height: AppSize.defaultSize! * 4,
             decoration: BoxDecoration(
                 border:
-                Border.all(color: AppColors.borderColor.withOpacity(.4)),
+                Border.all(color: AppColors.borderColor),
                 borderRadius: BorderRadius.circular(AppSize.defaultSize! * .5)),
             child: DropdownButton2<CitiesModel>(
               value: CitiesDropDown.selectedValue,
@@ -83,7 +83,7 @@ class _CitiesDropDownState extends State<CitiesDropDown> {
             height: AppSize.defaultSize! * 4,
             decoration: BoxDecoration(
                 border:
-                Border.all(color: AppColors.borderColor.withOpacity(.4)),
+                Border.all(color: AppColors.borderColor),
                 borderRadius: BorderRadius.circular(AppSize.defaultSize! * .5)),
             child: DropdownButton2(
                buttonStyleData: ButtonStyleData(

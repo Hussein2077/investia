@@ -44,6 +44,7 @@ class StringManager{
   static const String thereIsNo = "There is no items";
   static const String seeMore = "See More";
   static const String viewMore = "View More";
+  static const String searchForPharmaceutical  = "Search for pharmaceutical products ";
 
 
 

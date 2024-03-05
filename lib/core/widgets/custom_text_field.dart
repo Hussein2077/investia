@@ -16,7 +16,9 @@ class CustomTextField extends StatefulWidget {
   final Widget? suffixIcon;
   final void Function()? onTap;
   final TextStyle? hintStyle;
-  final  GlobalKey<FormState>? formKey ;
+  final GlobalKey<FormState>? formKey;
+
+  final Color? fillColor;
 
   const CustomTextField({
     super.key,
@@ -32,7 +34,9 @@ class CustomTextField extends StatefulWidget {
     this.hintStyle,
     this.width,
     this.height,
-    this.maxLines, this.formKey,
+    this.maxLines,
+    this.formKey,
+    this.fillColor,
   });
 
   @override
@@ -45,24 +49,22 @@ class _CustomTextFieldState extends State<CustomTextField> {
     return SizedBox(
       height: widget.height ?? AppSize.defaultSize! * 6,
       width: widget.width ?? AppSize.screenWidth! - (AppSize.defaultSize! * 4),
-
       child: Form(
         key: widget.formKey,
         child: TextFormField(
-
           onTap: widget.onTap,
           maxLines: widget.maxLines,
           readOnly: widget.readOnly,
           validator: (value) {
             if (value == null || value.isEmpty) {
-
               return 'Please complete this field';
             }
             return null;
           },
           decoration: InputDecoration(
             labelText: widget.labelText,
-
+            fillColor: widget.fillColor,
+            filled: widget.fillColor != null ? true : false,
             hintText: widget.hintText,
             hintStyle: widget.hintStyle,
             suffixIcon: widget.suffixIcon,
@@ -73,23 +75,23 @@ class _CustomTextFieldState extends State<CustomTextField> {
             ),
             prefixIcon: widget.prefixIcon,
             enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(AppSize.defaultSize!*1.3),
+              borderRadius: BorderRadius.circular(AppSize.defaultSize! * 1.3),
               borderSide:
-                  BorderSide(color: AppColors.borderColor.withOpacity(.4)),
+                  BorderSide(color: AppColors.greyColor),
             ),
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(AppSize.defaultSize!*1.3),
+              borderRadius: BorderRadius.circular(AppSize.defaultSize! * 1.3),
               borderSide:
-                  BorderSide(color: AppColors.borderColor.withOpacity(.4)),
+                  BorderSide(color: AppColors.greyColor),
             ),
             focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(AppSize.defaultSize!*1.3),
+                borderRadius: BorderRadius.circular(AppSize.defaultSize! * 1.3),
                 borderSide:
-                    BorderSide(color: AppColors.primaryColor.withOpacity(.4))),
+                    BorderSide(color: AppColors.primaryColor)),
             disabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(AppSize.defaultSize!*1.3),
+                borderRadius: BorderRadius.circular(AppSize.defaultSize! * 1.3),
                 borderSide:
-                    BorderSide(color: AppColors.borderColor.withOpacity(.4))),
+                    BorderSide(color: AppColors.greyColor)),
           ),
           controller: widget.controller,
           keyboardType: widget.keyboardType,

@@ -1,6 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:investa/core/resource_manager/asset_path.dart';
+import 'package:investa/core/resource_manager/colors.dart';
 import 'package:investa/core/utils/app_size.dart';
+import 'package:investa/core/widgets/cutom_text.dart';
 
 AppBar appBar(BuildContext context, {required String text}) {
   return AppBar(
@@ -22,31 +26,51 @@ AppBar homeAppBar(BuildContext context,
   return AppBar(
     backgroundColor: Colors.white,
     elevation: 1,
-    title: widget ??
-        Text(
-          '$text',
-          style: TextStyle(fontSize: AppSize.defaultSize!*2,fontWeight: FontWeight.w500),
-        ),
-    centerTitle: true,
-    leading: IconButton(
-      onPressed: () {
-        Scaffold.of(context).openDrawer();
-      },
-      icon: Image.asset(
-        AssetPath.menu,
-        width: AppSize.defaultSize! * 2,
-        height: AppSize.defaultSize! * 2,
-      ),
+    // title: widget ,
+    centerTitle: false,
+    title:   SvgPicture.asset(
+      AssetPath.logo,
+      width: AppSize.defaultSize! * 14,
+      height: AppSize.defaultSize! * 4,
     ),
     actions: [
-      IconButton(
-        onPressed: actionsOnPressed,
-        icon: Image.asset(
-          AssetPath.notification,
-          width: AppSize.defaultSize! * 2,
-          height: AppSize.defaultSize! * 2,
+
+      InkWell(
+        onTap: () {
+          if (context.locale == const Locale('en')) {
+            context.setLocale(const Locale('ar'));
+          } else {
+            context.setLocale(const Locale('en'));
+          }
+          // setState(() {});
+        },
+        child: Row(
+          children: [
+            Image.asset(AssetPath.language,),
+            SizedBox(
+              width: AppSize.defaultSize! * .5,
+            ),
+            CustomText(
+              text: context.locale == const Locale('en')
+                  ? 'العربية'
+                  : 'English',
+              color: AppColors.blackColor,
+              fontSize: AppSize.defaultSize! * 1.4,
+              fontWeight: FontWeight.w600,
+            ),
+          ],
         ),
-      )
+      ), SizedBox(
+        width: AppSize.defaultSize! * 2,
+      ),
+      // IconButton(
+      //   onPressed: actionsOnPressed,
+      //   icon: Image.asset(
+      //     AssetPath.notification,
+      //     width: AppSize.defaultSize! * 2,
+      //     height: AppSize.defaultSize! * 2,
+      //   ),
+      // )
     ],
   );
 }
