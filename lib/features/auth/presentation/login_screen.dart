@@ -11,6 +11,7 @@ import 'package:investa/core/resource_manager/routes.dart';
 import 'package:investa/core/resource_manager/string_manager.dart';
 import 'package:investa/core/utils/app_size.dart';
 import 'package:investa/core/widgets/cutom_text.dart';
+import 'package:investa/core/widgets/grey_button.dart';
 import 'package:investa/core/widgets/main_button.dart';
 import 'package:investa/core/widgets/custom_text_field.dart';
 import 'package:investa/core/widgets/snack_bar.dart';
@@ -217,31 +218,17 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: AppSize.defaultSize! * 1.5,
                   ),
 
-                  InkWell(
-                    onTap: () {
-                      Navigator.pushNamed(
-                        context,
-                        Routes.signUp,
-                      );
-                    },
-                    child: Container(
-                      width: AppSize.screenWidth!,
-                      height: AppSize.defaultSize! * 4.8,
-                      decoration: BoxDecoration(
-                          color: AppColors.containerColor,
-                          borderRadius:
-                              BorderRadius.circular(AppSize.defaultSize!)),
-                      child: Center(
-                        child: Text(
-                          StringManager.signUp.tr(),
-                          style: TextStyle(
-                              color: AppColors.primaryColor,
-                              fontSize: AppSize.defaultSize! * 1.5,
-                              fontWeight: FontWeight.w700),
-                        ),
-                      ),
-                    ),
-                  ),
+                ButtonGrey(
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      Routes.signUp,
+                    );
+                  },
+                  text:  StringManager.signUp.tr(),
+
+
+                ),
                 ],
               ),
             ),

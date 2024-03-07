@@ -7,6 +7,7 @@ import 'package:investa/core/resource_manager/routes.dart';
 import 'package:investa/core/resource_manager/string_manager.dart';
 import 'package:investa/core/utils/app_size.dart';
 import 'package:investa/core/widgets/coming_soon.dart';
+import 'package:investa/features/cart%20and%20orders/presentation/cart_screen.dart';
 import 'package:investa/features/home/presentation/home_screen.dart';
 
 
@@ -25,20 +26,10 @@ class _MainScreenState extends State<MainScreen> {
 
   List<Widget> _buildScreens() {
     return [
-      HomeScreen(
-        onPressedJob: () {
-          MainScreen.mainIndex = 2;
-          Navigator.pushNamed(context, Routes.main);
-        },
-        onPressedIntern: () {
-          MainScreen.mainIndex = 1;
-          Navigator.pushNamed(context, Routes.main);
-        },
-      ),
+      HomeScreen(),
+      CartScreen(),
       SizedBox(),
       SizedBox(),
-      SizedBox(),
-      ComingSoon(),
 
     ];
   }
@@ -56,7 +47,7 @@ class _MainScreenState extends State<MainScreen> {
       ),
       PersistentBottomNavBarItem(
         icon:   Icon(
-          Icons.school_outlined,
+          Icons.shopping_cart,
           size: AppSize.defaultSize!*3,
         ),
         // title: StringManager.internships.tr(),
@@ -78,15 +69,6 @@ class _MainScreenState extends State<MainScreen> {
           size: AppSize.defaultSize!*3,
         ),
         // title: StringManager.blog.tr(),
-        activeColorPrimary: AppColors.primaryColor,
-        inactiveColorPrimary: CupertinoColors.systemGrey,
-      ),
-      PersistentBottomNavBarItem(
-        icon:   Icon(
-          Icons.collections_bookmark_outlined,
-          size: AppSize.defaultSize!*3,
-        ),
-        // title: StringManager.resources.tr(),
         activeColorPrimary: AppColors.primaryColor,
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),

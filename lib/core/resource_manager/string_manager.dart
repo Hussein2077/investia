@@ -45,6 +45,16 @@ class StringManager{
   static const String seeMore = "See More";
   static const String viewMore = "View More";
   static const String searchForPharmaceutical  = "Search for pharmaceutical products ";
+  static const String medicine  = "Medicine";
+  static const String recentOrders  = "Recent Orders";
+  static const String orderNo  = "Order No. ";
+  static const String orderConfirmed  = "Order Confirmed";
+  static const String orderPlaced = "Order Placed";
+  static const String delivered = "Delivered";
+  static const String orderTotal = "Order Total";
+  static const String orderDetails = "Order Details";
+  static const String cart = "Cart";
+  static const String items = "Items";
 
 
 

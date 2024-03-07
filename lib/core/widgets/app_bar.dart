@@ -6,18 +6,25 @@ import 'package:investa/core/resource_manager/colors.dart';
 import 'package:investa/core/utils/app_size.dart';
 import 'package:investa/core/widgets/cutom_text.dart';
 
-AppBar appBar(BuildContext context, {required String text}) {
+AppBar appBar(BuildContext context,
+    {required String text, bool leading = true}) {
   return AppBar(
     backgroundColor: Colors.white,
     elevation: 1,
-    title: Text(text,  style: TextStyle(fontSize: AppSize.defaultSize!*2,fontWeight: FontWeight.w500),),
-    centerTitle: true,
-    leading: IconButton(
-      onPressed: () {
-        Navigator.pop(context);
-      },
-      icon: const Icon(Icons.arrow_back_ios),
+    title: Text(
+      text,
+      style: TextStyle(
+          fontSize: AppSize.defaultSize! * 2, fontWeight: FontWeight.w500),
     ),
+    centerTitle: true,
+    leading: leading
+        ? IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back_ios),
+          )
+        : null,
   );
 }
 
@@ -28,13 +35,12 @@ AppBar homeAppBar(BuildContext context,
     elevation: 1,
     // title: widget ,
     centerTitle: false,
-    title:   SvgPicture.asset(
+    title: SvgPicture.asset(
       AssetPath.logo,
       width: AppSize.defaultSize! * 14,
       height: AppSize.defaultSize! * 4,
     ),
     actions: [
-
       InkWell(
         onTap: () {
           if (context.locale == const Locale('en')) {
@@ -46,21 +52,23 @@ AppBar homeAppBar(BuildContext context,
         },
         child: Row(
           children: [
-            Image.asset(AssetPath.language,),
+            Image.asset(
+              AssetPath.language,
+            ),
             SizedBox(
               width: AppSize.defaultSize! * .5,
             ),
             CustomText(
-              text: context.locale == const Locale('en')
-                  ? 'العربية'
-                  : 'English',
+              text:
+                  context.locale == const Locale('en') ? 'العربية' : 'English',
               color: AppColors.blackColor,
               fontSize: AppSize.defaultSize! * 1.4,
               fontWeight: FontWeight.w600,
             ),
           ],
         ),
-      ), SizedBox(
+      ),
+      SizedBox(
         width: AppSize.defaultSize! * 2,
       ),
       // IconButton(
