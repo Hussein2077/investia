@@ -6,6 +6,7 @@ class AppColors {
   static const Color greyColor = Color.fromRGBO(133, 133, 133, 1);
   static const Color containerColor = Color.fromRGBO(234, 232, 237, 1);
   static const Color containerColor2 = Color.fromRGBO(235, 236, 244, 1);
+  static const Color redContainer = Color.fromRGBO(230, 9, 24, 1);
 
 
   static const Color backGroundColor = Color(0xFFFFFFFF);

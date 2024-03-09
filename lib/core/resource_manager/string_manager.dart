@@ -48,6 +48,7 @@ class StringManager{
   static const String medicine  = "Medicine";
   static const String recentOrders  = "Recent Orders";
   static const String orderNo  = "Order No. ";
+  static const String orders  = "Orders";
   static const String orderConfirmed  = "Order Confirmed";
   static const String orderPlaced = "Order Placed";
   static const String delivered = "Delivered";
@@ -55,6 +56,11 @@ class StringManager{
   static const String orderDetails = "Order Details";
   static const String cart = "Cart";
   static const String items = "Items";
+  static const String addTo = "ADD TO CART";
+  static const String remove = "Remove";
+  static const String next = "Next";
+  static const String clearCart = "Clear Cart";
+  static const String confirmShippingAddress = "Confirm Shipping Address";
 
 
 

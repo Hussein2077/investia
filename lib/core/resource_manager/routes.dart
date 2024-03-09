@@ -4,6 +4,7 @@ import 'package:investa/features/auth/presentation/forget%20password/forget_pass
 import 'package:investa/features/auth/presentation/forget%20password/send_otp_code.dart';
 import 'package:investa/features/auth/presentation/login_screen.dart';
 import 'package:investa/features/auth/presentation/signup/sign_up.dart';
+import 'package:investa/features/cart%20and%20orders/presentation/widgets/confirm_shipping.dart';
 import 'package:investa/features/main_screen.dart';
 import 'package:investa/features/profile/presentation/profile_screen.dart';
 
@@ -15,6 +16,7 @@ class Routes {
   static const String sendOTPCode = "/sendOTPCode";
   static const String changePassword = "/changePassword";
   static const String profile = "/profile";
+  static const String confirmShippingAddress = "/Confirm Shipping Address";
 
 }
 
@@ -56,6 +58,11 @@ class RouteGenerator {
         return PageRouteBuilder(
             pageBuilder: (context, animation, secondaryAnimation) =>
                 const ProfileScreen(),
+            transitionsBuilder: customAnimate);
+        case Routes.confirmShippingAddress:
+        return PageRouteBuilder(
+            pageBuilder: (context, animation, secondaryAnimation) =>
+                const ConfirmShipping(),
             transitionsBuilder: customAnimate);
 
     }

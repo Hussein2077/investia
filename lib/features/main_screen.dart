@@ -8,6 +8,7 @@ import 'package:investa/core/resource_manager/string_manager.dart';
 import 'package:investa/core/utils/app_size.dart';
 import 'package:investa/core/widgets/coming_soon.dart';
 import 'package:investa/features/cart%20and%20orders/presentation/cart_screen.dart';
+import 'package:investa/features/cart%20and%20orders/presentation/orders.dart';
 import 'package:investa/features/home/presentation/home_screen.dart';
 
 
@@ -28,7 +29,7 @@ class _MainScreenState extends State<MainScreen> {
     return [
       HomeScreen(),
       CartScreen(),
-      SizedBox(),
+      OrdersScreen(),
       SizedBox(),
 
     ];
@@ -37,29 +38,37 @@ class _MainScreenState extends State<MainScreen> {
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
       PersistentBottomNavBarItem(
-        icon: Icon(
-          Icons.home_outlined,
-          size: AppSize.defaultSize!*3,
+        icon: Padding(
+          padding: const EdgeInsets.only(bottom: 3),
+          child: Icon(
+            Icons.home_outlined,
+            size: AppSize.defaultSize!*3,
+          ),
         ),
+
         title: StringManager.home.tr(),
         activeColorPrimary: AppColors.primaryColor,
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
       PersistentBottomNavBarItem(
-        icon:   Icon(
-          Icons.shopping_cart,
-          size: AppSize.defaultSize!*3,
+        icon:   Padding(
+          padding: const EdgeInsets.only(bottom: 3),
+
+          child: Icon(
+            Icons.shopping_cart,
+            size: AppSize.defaultSize!*3,
+          ),
         ),
-        // title: StringManager.internships.tr(),
+        title: StringManager.cart.tr(),
         activeColorPrimary: AppColors.primaryColor,
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
       PersistentBottomNavBarItem(
         icon:   Icon(
-          Icons.shopping_bag,
+          Icons.add_card_outlined,
           size: AppSize.defaultSize!*3,
         ),
-        // title: StringManager.jobs.tr(),
+        title: StringManager.orders.tr(),
         activeColorPrimary: AppColors.primaryColor,
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),

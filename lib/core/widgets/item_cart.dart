@@ -1,32 +1,69 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:investa/core/resource_manager/colors.dart';
+import 'package:investa/core/resource_manager/string_manager.dart';
 import 'package:investa/core/utils/app_size.dart';
 import 'package:investa/core/widgets/cutom_text.dart';
+import 'package:investa/core/widgets/grey_button.dart';
+
 class ItemCart extends StatelessWidget {
-  const ItemCart({super.key});
+  const ItemCart({super.key, this.isCart = true});
+
+  final bool isCart;
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(itemBuilder: (context,i){return
-    Column(
-      children: [
-        CustomText(
-          text: '20 % Offer',
-          fontWeight: FontWeight.w700,
-          color: AppColors.primaryColor,
-          fontSize: AppSize.defaultSize! * 1.8,
-        ),  CustomText(
-          text: '20 % Offer',
-          fontWeight: FontWeight.w700,
-          color: AppColors.primaryColor,
-          fontSize: AppSize.defaultSize! * 1.8,
-        ),
-      ],
-    );
-
-    });
+    return ListView.builder(
+        itemCount: 4,
+        itemBuilder: (context, i) {
+          return Padding(
+            padding: EdgeInsets.all(AppSize.defaultSize! * 1.6),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomText(
+                  text: 'CeraVe Moisturizing Cream',
+                  fontWeight: FontWeight.w500,
+                  color: AppColors.black,
+                  fontSize: AppSize.defaultSize! * 1.4,
+                ),
+                SizedBox(
+                  height: AppSize.defaultSize! * .2,
+                ),
+                CustomText(
+                  text: 'CeraVe',
+                  color: AppColors.greyColor,
+                  fontSize: AppSize.defaultSize! * 1.2,
+                ),
+                SizedBox(
+                  height: AppSize.defaultSize!,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const ShoppingCartItem(),
+                    isCart
+                        ? ButtonGrey(
+                            text: StringManager.remove.tr(),
+                            width: AppSize.screenWidth! * .5,
+                            color: AppColors.redContainer.withOpacity(.15),
+                            height: AppSize.defaultSize! * 3.2,
+                            textColor: AppColors.redContainer,
+                          )
+                        : ButtonGrey(
+                            text: StringManager.addTo.tr(),
+                            width: AppSize.screenWidth! * .5,
+                            height: AppSize.defaultSize! * 3.2,
+                          ),
+                  ],
+                ),
+              ],
+            ),
+          );
+        });
   }
 }
+
 class ShoppingCartItem extends StatefulWidget {
   const ShoppingCartItem({super.key});
 
@@ -54,19 +91,40 @@ class ShoppingCartItemState extends State<ShoppingCartItem> {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        IconButton(
-          icon: const Icon(Icons.remove),
-          onPressed: decrementItem,
+        CircleAvatar(
+          backgroundColor: AppColors.containerColor,
+          radius: AppSize.defaultSize! * 1.6,
+          child: IconButton(
+            icon: Icon(
+              Icons.remove,
+              size: AppSize.defaultSize! * 1.4,
+            ),
+            onPressed: decrementItem,
+          ),
         ),
-        Text(
-          itemCount.toString(),
-          style: TextStyle(fontSize: AppSize.defaultSize!),
+        SizedBox(
+          width: AppSize.defaultSize!,
         ),
-        IconButton(
-          icon: const Icon(Icons.add),
-          onPressed: incrementItem,
+        CustomText(
+          text: itemCount.toString(),
+          color: AppColors.primaryColor,
+          fontSize: AppSize.defaultSize! * 1.8,
+        ),
+        SizedBox(
+          width: AppSize.defaultSize!,
+        ),
+        CircleAvatar(
+          backgroundColor: AppColors.containerColor,
+          radius: AppSize.defaultSize! * 1.6,
+          child: IconButton(
+            icon: Icon(
+              Icons.add,
+              size: AppSize.defaultSize! * 1.4,
+            ),
+            onPressed: incrementItem,
+          ),
         ),
       ],
     );
