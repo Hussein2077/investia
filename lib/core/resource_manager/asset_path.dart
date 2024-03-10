@@ -10,6 +10,7 @@ class AssetPath {
   static const String notification = '$pathImage/notification.png';
   static const String menu = '$pathImage/menu.png';
   static const String order = '$pathImage/orders.png';
+  static const String orderTracking = '$pathImage/order tracking.svg';
 
 
 }

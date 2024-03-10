@@ -61,6 +61,15 @@ class StringManager{
   static const String next = "Next";
   static const String clearCart = "Clear Cart";
   static const String confirmShippingAddress = "Confirm Shipping Address";
+  static const String onWay = "On Way";
+  static const String history = "History";
+  static const String pharmacyName = "Pharmacy Name";
+  static const String mobileNumber = "Mobile Number";
+  static const String address = "Address";
+  static const String yourRate = "Your Rate";
+  static const String cancelOrder = "Cancel Order";
+  static const String addRate = "Add Rate";
+  static const String notifications = "Notifications";
 
 
 

@@ -7,14 +7,24 @@ import 'package:investa/core/widgets/cutom_text.dart';
 import 'package:investa/core/widgets/grey_button.dart';
 
 class ItemCart extends StatelessWidget {
-  const ItemCart({super.key, this.isCart = true});
+  const ItemCart(
+      {super.key,
+      this.isCart = true,
+      this.showPrice = false,
+      this.scroll = true});
 
   final bool isCart;
+  final bool showPrice;
+  final bool scroll;
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        itemCount: 4,
+        itemCount: 3,
+        shrinkWrap: true,
+        physics: scroll
+            ? const BouncingScrollPhysics()
+            : const NeverScrollableScrollPhysics(),
         itemBuilder: (context, i) {
           return Padding(
             padding: EdgeInsets.all(AppSize.defaultSize! * 1.6),
@@ -38,25 +48,42 @@ class ItemCart extends StatelessWidget {
                 SizedBox(
                   height: AppSize.defaultSize!,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const ShoppingCartItem(),
-                    isCart
-                        ? ButtonGrey(
-                            text: StringManager.remove.tr(),
-                            width: AppSize.screenWidth! * .5,
-                            color: AppColors.redContainer.withOpacity(.15),
-                            height: AppSize.defaultSize! * 3.2,
-                            textColor: AppColors.redContainer,
-                          )
-                        : ButtonGrey(
-                            text: StringManager.addTo.tr(),
-                            width: AppSize.screenWidth! * .5,
-                            height: AppSize.defaultSize! * 3.2,
+                showPrice
+                    ? Row(
+                        children: [
+                          CustomText(
+                            text: '52.5 EGP x4 ',
+                            color: AppColors.black,
+                            fontSize: AppSize.defaultSize! * 1.4,
                           ),
-                  ],
-                ),
+                          CustomText(
+                            text: '  210 EGP',
+                            color: AppColors.black,
+                            fontWeight: FontWeight.w600,
+                            fontSize: AppSize.defaultSize! * 1.4,
+                          ),
+                        ],
+                      )
+                    : Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const ShoppingCartItem(),
+                          isCart
+                              ? ButtonGrey(
+                                  text: StringManager.remove.tr(),
+                                  width: AppSize.screenWidth! * .5,
+                                  color:
+                                      AppColors.redContainer.withOpacity(.15),
+                                  height: AppSize.defaultSize! * 3.2,
+                                  textColor: AppColors.redContainer,
+                                )
+                              : ButtonGrey(
+                                  text: StringManager.addTo.tr(),
+                                  width: AppSize.screenWidth! * .5,
+                                  height: AppSize.defaultSize! * 3.2,
+                                ),
+                        ],
+                      ),
               ],
             ),
           );

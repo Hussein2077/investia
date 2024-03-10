@@ -5,10 +5,12 @@ import 'package:investa/core/resource_manager/string_manager.dart';
 import 'package:investa/core/utils/app_size.dart';
 import 'package:investa/core/widgets/cutom_text.dart';
 import 'package:investa/core/widgets/grey_button.dart';
+import 'package:investa/features/cart%20and%20orders/presentation/widgets/order_details.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 class RecentOrderDetails extends StatefulWidget {
-  const RecentOrderDetails({super.key});
-
+  const RecentOrderDetails({super.key,   this.scroll=false});
+final bool scroll;
   @override
   State<RecentOrderDetails> createState() => _RecentOrderDetailsState();
 }
@@ -17,8 +19,9 @@ class _RecentOrderDetailsState extends State<RecentOrderDetails> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      physics: const NeverScrollableScrollPhysics(),
+      physics:widget.scroll?const BouncingScrollPhysics(): const NeverScrollableScrollPhysics(),
         itemCount: 10,
+        shrinkWrap: true,
         itemBuilder: (context, index) {
           return Padding(
             padding: EdgeInsets.only(bottom: AppSize.defaultSize!),
@@ -99,6 +102,15 @@ class _RecentOrderDetailsState extends State<RecentOrderDetails> {
                         height: AppSize.defaultSize! * 4,
                         width: AppSize.screenWidth!,
                         text: StringManager.orderDetails.tr(),
+                        onTap: (){
+                          PersistentNavBarNavigator.pushNewScreen(
+                            context,
+                            screen: const OrderDetailsTrackingScreen(),
+                            withNavBar: false,
+                            // OPTIONAL VALUE. True by default.
+                            pageTransitionAnimation: PageTransitionAnimation.fade,
+                          );
+                        },
                       ),
                     )
                   ],

@@ -46,7 +46,9 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ),
 
-        title: StringManager.home.tr(),
+        title: StringManager.home.tr(),  textStyle: TextStyle(
+          fontSize: AppSize.defaultSize!
+      ),
         activeColorPrimary: AppColors.primaryColor,
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
@@ -59,7 +61,9 @@ class _MainScreenState extends State<MainScreen> {
             size: AppSize.defaultSize!*3,
           ),
         ),
-        title: StringManager.cart.tr(),
+        title: StringManager.cart.tr(),  textStyle: TextStyle(
+          fontSize: AppSize.defaultSize!
+      ),
         activeColorPrimary: AppColors.primaryColor,
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
@@ -68,16 +72,21 @@ class _MainScreenState extends State<MainScreen> {
           Icons.add_card_outlined,
           size: AppSize.defaultSize!*3,
         ),
-        title: StringManager.orders.tr(),
+        title: StringManager.orders.tr(),  textStyle: TextStyle(
+          fontSize: AppSize.defaultSize!
+      ),
         activeColorPrimary: AppColors.primaryColor,
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
       PersistentBottomNavBarItem(
         icon:   Icon(
-          Icons.sticky_note_2_outlined,
+          Icons.notifications_none_outlined,
           size: AppSize.defaultSize!*3,
         ),
-        // title: StringManager.blog.tr(),
+        title: StringManager.notifications.tr(),
+        textStyle: TextStyle(
+          fontSize: AppSize.defaultSize!
+        ),
         activeColorPrimary: AppColors.primaryColor,
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),

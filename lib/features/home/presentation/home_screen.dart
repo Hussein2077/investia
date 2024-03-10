@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:investa/core/resource_manager/asset_path.dart';
 import 'package:investa/core/resource_manager/colors.dart';
@@ -64,44 +65,46 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
             ),
-            Container(
-              width: AppSize.screenWidth! * .91,
-              height: AppSize.defaultSize! * 10.4,
-              decoration: BoxDecoration(
-                  border: Border.all(
-                      color: AppColors.greyColor.withOpacity(.3), width: 1.5),
-                  borderRadius: BorderRadius.circular(AppSize.defaultSize!)),
-              child: Padding(
-                padding: EdgeInsets.all(AppSize.defaultSize!),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Image.asset(
-                      AssetPath.offer,
-                      width: AppSize.defaultSize! * 7.8,
-                      height: AppSize.defaultSize! * 7.2,
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        CustomText(
-                          text: '20 % Offer',
-                          fontWeight: FontWeight.w700,
-                          color: AppColors.primaryColor,
-                          fontSize: AppSize.defaultSize! * 1.8,
-                        ),
-                        CustomText(
-                          text:
-                              'if you bought more than 1500 EGP \nor more you will get 20% off',
-                          maxLines: 4,
-                          textAlign: TextAlign.start,
-                          fontSize: AppSize.defaultSize! * 1.3,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ],
-                    ),
-                  ],
+            Center(
+              child: Container(
+                width: AppSize.screenWidth! * .91,
+                height: AppSize.defaultSize! * 10.4,
+                decoration: BoxDecoration(
+                    border: Border.all(
+                        color: AppColors.greyColor.withOpacity(.3), width: 1.5),
+                    borderRadius: BorderRadius.circular(AppSize.defaultSize!)),
+                child: Padding(
+                  padding: EdgeInsets.all(AppSize.defaultSize!),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Image.asset(
+                        AssetPath.offer,
+                        width: AppSize.defaultSize! * 7.8,
+                        height: AppSize.defaultSize! * 7.2,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          CustomText(
+                            text: '20 % Offer',
+                            fontWeight: FontWeight.w700,
+                            color: AppColors.primaryColor,
+                            fontSize: AppSize.defaultSize! * 1.8,
+                          ),
+                          CustomText(
+                            text:
+                                'if you bought more than 1500 EGP \nor more you will get 20% off',
+                            maxLines: 4,
+                            textAlign: TextAlign.start,
+                            fontSize: AppSize.defaultSize! * 1.3,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -117,10 +120,10 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               height: AppSize.defaultSize!,
             ),
-            SizedBox(
-              height: AppSize.screenHeight!,
-              child: const RecentOrderDetails(),
-            ),
+            const RecentOrderDetails(scroll: false,),
+                SizedBox(
+                  height: AppSize.defaultSize!*3,
+                ),
           ]),
         ),
       ),
