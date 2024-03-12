@@ -10,6 +10,7 @@ import 'package:investa/core/widgets/coming_soon.dart';
 import 'package:investa/features/cart%20and%20orders/presentation/cart_screen.dart';
 import 'package:investa/features/cart%20and%20orders/presentation/orders.dart';
 import 'package:investa/features/home/presentation/home_screen.dart';
+import 'package:investa/features/profile/presentation/componants/notifications/notification_screen.dart';
 
 
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
@@ -30,7 +31,7 @@ class _MainScreenState extends State<MainScreen> {
       HomeScreen(),
       CartScreen(),
       OrdersScreen(),
-      SizedBox(),
+      NotificationsScreen(),
 
     ];
   }

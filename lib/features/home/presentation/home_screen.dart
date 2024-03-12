@@ -67,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Center(
               child: Container(
-                width: AppSize.screenWidth! * .91,
+                // width: AppSize.screenWidth! * .91,
                 height: AppSize.defaultSize! * 10.4,
                 decoration: BoxDecoration(
                     border: Border.all(
