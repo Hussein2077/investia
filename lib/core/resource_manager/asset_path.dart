@@ -11,7 +11,11 @@ class AssetPath {
   static const String menu = '$pathImage/menu.png';
   static const String orderPlaced = '$pathImage/Order Placed.png';
   static const String order = '$pathImage/orders.png';
+  static const String testImage = '$pathImage/image_test.png';
   static const String orderTracking = '$pathImage/order tracking.svg';
+  static const String feedback = '$pathImage/feedback.svg';
+  static const String settings = '$pathImage/settings.svg';
+  static const String helpAndSupport = '$pathImage/Help And Support.svg';
 
 
 }

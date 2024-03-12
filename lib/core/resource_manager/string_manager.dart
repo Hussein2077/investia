@@ -70,6 +70,11 @@ class StringManager{
   static const String cancelOrder = "Cancel Order";
   static const String addRate = "Add Rate";
   static const String notifications = "Notifications";
+  static const String menu = "Menu";
+  static const String  editYourProfile = " Edit Your Profile";
+  static const String  settings = "Settings";
+  static const String  feedback = "Feedback";
+  static const String  helpAndSupport = "Help And Support";
 
 
 

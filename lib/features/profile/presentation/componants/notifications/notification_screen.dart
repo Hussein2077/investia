@@ -38,7 +38,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                           padding: EdgeInsets.all(AppSize.defaultSize!),
                           child: Row(
                             children: [
-                              Image.asset(AssetPath.orderPlaced),
+                              // Image.asset(AssetPath.orderPlaced),
                               SizedBox(
                                 width: AppSize.defaultSize!,
                               ),

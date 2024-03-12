@@ -10,6 +10,7 @@ import 'package:investa/core/widgets/coming_soon.dart';
 import 'package:investa/features/cart%20and%20orders/presentation/cart_screen.dart';
 import 'package:investa/features/cart%20and%20orders/presentation/orders.dart';
 import 'package:investa/features/home/presentation/home_screen.dart';
+import 'package:investa/features/profile/presentation/componants/menu/menu_screen.dart';
 import 'package:investa/features/profile/presentation/componants/notifications/notification_screen.dart';
 
 
@@ -32,6 +33,7 @@ class _MainScreenState extends State<MainScreen> {
       CartScreen(),
       OrdersScreen(),
       NotificationsScreen(),
+      MenuScreen(),
 
     ];
   }
@@ -85,6 +87,17 @@ class _MainScreenState extends State<MainScreen> {
           size: AppSize.defaultSize!*3,
         ),
         title: StringManager.notifications.tr(),
+        textStyle: TextStyle(
+          fontSize: AppSize.defaultSize!
+        ),
+        activeColorPrimary: AppColors.primaryColor,
+        inactiveColorPrimary: CupertinoColors.systemGrey,
+      ),  PersistentBottomNavBarItem(
+        icon:   Icon(
+          Icons.menu,
+          size: AppSize.defaultSize!*3,
+        ),
+        title: StringManager.menu.tr(),
         textStyle: TextStyle(
           fontSize: AppSize.defaultSize!
         ),
