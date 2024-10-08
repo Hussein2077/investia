@@ -10,11 +10,15 @@ import 'package:investa/core/utils/app_size.dart';
 import 'package:investa/core/widgets/app_bar.dart';
 import 'package:investa/core/widgets/custom_text_field.dart';
 import 'package:investa/core/widgets/cutom_text.dart';
+import 'package:investa/features/home/presentation/componants/search/search_screen.dart';
+import 'package:investa/features/home/presentation/widget/home_details_screen.dart';
 import 'package:investa/features/home/presentation/widget/recent_order_details.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key,  });
-
+  const HomeScreen({
+    super.key,
+  });
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -39,7 +43,14 @@ class _HomeScreenState extends State<HomeScreen> {
               child: CustomTextField(
                 hintText: StringManager.searchForPharmaceutical.tr(),
                 readOnly: true,
-                onTap: () {},
+                onTap: () {
+                  PersistentNavBarNavigator.pushNewScreen(
+                    context,
+                    screen: const SearchScreen(),
+                    withNavBar: false,
+                    pageTransitionAnimation: PageTransitionAnimation.fade,
+                  );
+                },
                 hintStyle: TextStyle(
                     fontSize: AppSize.defaultSize! * 1.4,
                     color: AppColors.greyColor),
@@ -120,10 +131,12 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               height: AppSize.defaultSize!,
             ),
-            const RecentOrderDetails(scroll: false,),
-                SizedBox(
-                  height: AppSize.defaultSize!*3,
-                ),
+            const RecentOrderDetails(
+              scroll: false,
+            ),
+            SizedBox(
+              height: AppSize.defaultSize! * 3,
+            ),
           ]),
         ),
       ),
@@ -133,10 +146,21 @@ class _HomeScreenState extends State<HomeScreen> {
   homeCard() {
     return Padding(
       padding: EdgeInsets.all(AppSize.defaultSize!),
-      child: Container(
-        decoration: BoxDecoration(
-            color: AppColors.containerColor2,
-            borderRadius: BorderRadius.circular(AppSize.defaultSize!)),
+      child: ElevatedButton(
+        onPressed: () {
+          PersistentNavBarNavigator.pushNewScreen(
+            context,
+            screen: const HomeDetailsScreen(),
+            withNavBar: false,
+            pageTransitionAnimation: PageTransitionAnimation.fade,
+          );
+        },
+        style: ElevatedButton.styleFrom(
+          shape: RoundedRectangleBorder(
+            borderRadius:
+             BorderRadius.circular(AppSize.defaultSize!)),
+          ),
+
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

@@ -5,6 +5,8 @@ import 'package:investa/core/resource_manager/string_manager.dart';
 import 'package:investa/core/utils/app_size.dart';
 import 'package:investa/core/widgets/cutom_text.dart';
 import 'package:investa/core/widgets/grey_button.dart';
+import 'package:investa/core/widgets/product_details.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 class ItemCart extends StatelessWidget {
   const ItemCart(
@@ -27,64 +29,74 @@ class ItemCart extends StatelessWidget {
             : const NeverScrollableScrollPhysics(),
         itemBuilder: (context, i) {
           return Padding(
-            padding: EdgeInsets.all(AppSize.defaultSize! * 1.6),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CustomText(
-                  text: 'CeraVe Moisturizing Cream',
-                  fontWeight: FontWeight.w500,
-                  color: AppColors.black,
-                  fontSize: AppSize.defaultSize! * 1.4,
-                ),
-                SizedBox(
-                  height: AppSize.defaultSize! * .2,
-                ),
-                CustomText(
-                  text: 'CeraVe',
-                  color: AppColors.greyColor,
-                  fontSize: AppSize.defaultSize! * 1.2,
-                ),
-                SizedBox(
-                  height: AppSize.defaultSize!,
-                ),
-                showPrice
-                    ? Row(
-                        children: [
-                          CustomText(
-                            text: '52.5 EGP x4 ',
-                            color: AppColors.black,
-                            fontSize: AppSize.defaultSize! * 1.4,
-                          ),
-                          CustomText(
-                            text: '  210 EGP',
-                            color: AppColors.black,
-                            fontWeight: FontWeight.w600,
-                            fontSize: AppSize.defaultSize! * 1.4,
-                          ),
-                        ],
-                      )
-                    : Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const ShoppingCartItem(),
-                          isCart
-                              ? ButtonGrey(
-                                  text: StringManager.remove.tr(),
-                                  width: AppSize.screenWidth! * .5,
-                                  color:
-                                      AppColors.redContainer.withOpacity(.15),
-                                  height: AppSize.defaultSize! * 3.2,
-                                  textColor: AppColors.redContainer,
-                                )
-                              : ButtonGrey(
-                                  text: StringManager.addTo.tr(),
-                                  width: AppSize.screenWidth! * .5,
-                                  height: AppSize.defaultSize! * 3.2,
-                                ),
-                        ],
-                      ),
-              ],
+            padding: EdgeInsets.symmetric(vertical:AppSize.defaultSize! * 1.6),
+            child: InkWell(
+              onTap: (){
+                PersistentNavBarNavigator.pushNewScreen(
+                  context,
+                  screen: const ProductDetails(),
+                  withNavBar: false,
+                  pageTransitionAnimation: PageTransitionAnimation.fade,
+                );
+              },
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CustomText(
+                    text: 'CeraVe Moisturizing Cream',
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.black,
+                    fontSize: AppSize.defaultSize! * 1.4,
+                  ),
+                  SizedBox(
+                    height: AppSize.defaultSize! * .2,
+                  ),
+                  CustomText(
+                    text: 'CeraVe',
+                    color: AppColors.greyColor,
+                    fontSize: AppSize.defaultSize! * 1.2,
+                  ),
+                  SizedBox(
+                    height: AppSize.defaultSize!,
+                  ),
+                  showPrice
+                      ? Row(
+                          children: [
+                            CustomText(
+                              text: '52.5 EGP x4 ',
+                              color: AppColors.black,
+                              fontSize: AppSize.defaultSize! * 1.4,
+                            ),
+                            CustomText(
+                              text: '  210 EGP',
+                              color: AppColors.black,
+                              fontWeight: FontWeight.w600,
+                              fontSize: AppSize.defaultSize! * 1.4,
+                            ),
+                          ],
+                        )
+                      : Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const ShoppingCartItem(),
+                            isCart
+                                ? ButtonGrey(
+                                    text: StringManager.remove.tr(),
+                                    width: AppSize.screenWidth! * .5,
+                                    color:
+                                        AppColors.redContainer.withOpacity(.15),
+                                    height: AppSize.defaultSize! * 3.2,
+                                    textColor: AppColors.redContainer,
+                                  )
+                                : ButtonGrey(
+                                    text: StringManager.addTo.tr(),
+                                    width: AppSize.screenWidth! * .5,
+                                    height: AppSize.defaultSize! * 3.2,
+                                  ),
+                          ],
+                        ),
+                ],
+              ),
             ),
           );
         });

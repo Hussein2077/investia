@@ -16,6 +16,7 @@ class AssetPath {
   static const String feedback = '$pathImage/feedback.svg';
   static const String settings = '$pathImage/settings.svg';
   static const String helpAndSupport = '$pathImage/Help And Support.svg';
+  static const String confirmed = '$pathImage/confirmed.svg';
 
 
 }

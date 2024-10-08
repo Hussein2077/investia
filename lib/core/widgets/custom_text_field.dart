@@ -12,6 +12,7 @@ class CustomTextField extends StatefulWidget {
   final TextInputType keyboardType;
   final bool obscureText;
   final bool readOnly;
+  final bool autofocus;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
   final void Function()? onTap;
@@ -36,7 +37,7 @@ class CustomTextField extends StatefulWidget {
     this.height,
     this.maxLines,
     this.formKey,
-    this.fillColor,
+    this.fillColor,   this.autofocus=false,
   });
 
   @override
@@ -53,7 +54,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         key: widget.formKey,
         child: TextFormField(
           onTap: widget.onTap,
-          maxLines: widget.maxLines,
+          maxLines: widget.maxLines,autofocus:widget.autofocus ,
           readOnly: widget.readOnly,
           validator: (value) {
             if (value == null || value.isEmpty) {

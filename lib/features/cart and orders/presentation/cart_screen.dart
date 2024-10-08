@@ -25,12 +25,12 @@ class CartScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CustomText(
-              text: StringManager.items.tr() + ' (2)',
+              text: '${StringManager.items.tr()} (2)',
               fontWeight: FontWeight.w700,
               color: AppColors.black,
               fontSize: AppSize.defaultSize! * 1.8,
             ),
-            Expanded(child: ItemCart()),
+            const Expanded(child: ItemCart()),
             Divider(),
             Padding(
               padding: EdgeInsets.all(AppSize.defaultSize!),
@@ -68,7 +68,6 @@ class CartScreen extends StatelessWidget {
                       context,
                       screen: const ConfirmShipping(),
                       withNavBar: false,
-                      // OPTIONAL VALUE. True by default.
                       pageTransitionAnimation: PageTransitionAnimation.fade,
                     );
                   },

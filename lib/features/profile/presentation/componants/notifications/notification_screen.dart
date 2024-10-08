@@ -6,6 +6,9 @@ import 'package:investa/core/resource_manager/string_manager.dart';
 import 'package:investa/core/utils/app_size.dart';
 import 'package:investa/core/widgets/app_bar.dart';
 import 'package:investa/core/widgets/cutom_text.dart';
+import 'package:investa/core/widgets/grey_button.dart';
+import 'package:investa/features/cart%20and%20orders/presentation/widgets/order_details.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 class NotificationsScreen extends StatefulWidget {
   const NotificationsScreen({super.key});
@@ -55,6 +58,26 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                                 ),
                               ),
                             ],
+                          ),
+                        ),
+                        Padding(
+                          padding:   EdgeInsets.only(right: AppSize.defaultSize!*2),
+                          child: Align(
+                            alignment:Alignment.bottomRight,
+                            child: ButtonGrey(
+                              height: AppSize.defaultSize! * 4,
+                              width: AppSize.screenWidth!*.7,
+                              text: StringManager.orderDetails.tr(),
+                              onTap: (){
+                                PersistentNavBarNavigator.pushNewScreen(
+                                  context,
+                                  screen: const OrderDetailsTrackingScreen(),
+                                  withNavBar: false,
+                                  // OPTIONAL VALUE. True by default.
+                                  pageTransitionAnimation: PageTransitionAnimation.fade,
+                                );
+                              },
+                            ),
                           ),
                         ),
                         const Divider(),

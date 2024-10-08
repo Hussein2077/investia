@@ -53,13 +53,16 @@ class StringManager{
   static const String orderPlaced = "Order Placed";
   static const String delivered = "Delivered";
   static const String orderTotal = "Order Total";
+  static const String subTotal = "SubTotal";
+  static const String deliveryPrice = "Delivery Price";
   static const String orderDetails = "Order Details";
   static const String cart = "Cart";
+  static const String city = "City";
   static const String items = "Items";
   static const String addTo = "ADD TO CART";
   static const String remove = "Remove";
   static const String next = "Next";
-  static const String clearCart = "Clear Cart";
+   static const String clearCart = "Clear Cart";
   static const String confirmShippingAddress = "Confirm Shipping Address";
   static const String onWay = "On Way";
   static const String history = "History";
@@ -74,7 +77,16 @@ class StringManager{
   static const String  editYourProfile = " Edit Your Profile";
   static const String  settings = "Settings";
   static const String  feedback = "Feedback";
+  static const String  productDetails = "Product Details";
   static const String  helpAndSupport = "Help And Support";
+  static const String  brand = "Brand";
+  static const String  size = "Size";
+  static const String  government = "Government";
+  static const String  productDescription = "Product Description";
+  static const String  orderReviewing = "Order Reviewing & Placement";
+  static const String  placeYourOrder = "Place Your Order";
+  static const String  yourOrderIsPlacedSuccessfully = "Your Order is Placed Successfully";
+  static const String  goToHomePage = "Go to Home Page";
 
 
 

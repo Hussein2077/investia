@@ -54,7 +54,7 @@ class _UniversityDropDownState extends State<UniversityDropDown> {
               hint: Padding(
                 padding: EdgeInsets.only(left: AppSize.defaultSize!),
                 child: Text(
-                  'StringManager.university.tr()',
+                  StringManager.government.tr(),
                   style: TextStyle(
                     fontSize: AppSize.defaultSize!,
                   ),
@@ -97,7 +97,7 @@ class _UniversityDropDownState extends State<UniversityDropDown> {
                 hint: Padding(
                   padding: EdgeInsets.only(left: AppSize.defaultSize!),
                   child: Text(
-                    'StringManager.selectArea.tr()',
+                    StringManager.address.tr(),
                     style: TextStyle(
                       fontSize: AppSize.defaultSize!,
                     ),
